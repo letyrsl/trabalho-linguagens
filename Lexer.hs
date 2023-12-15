@@ -142,7 +142,7 @@ lexKW cs = case span isAlpha cs of
              ("Num", rest) -> TokenNumber: lexer rest
              ("Bool", rest) -> TokenBoolean : lexer rest
 
-             ("Mixed", rest) -> TokenMixed : lexer rest
              ("list", rest) -> TokenList : lexer rest
+             ("Mixed", rest) -> TokenMixed : lexer rest
 
              (var, rest) -> TokenVar var : lexer rest

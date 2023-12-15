@@ -88,13 +88,14 @@ Type    : Bool                           { TBool }
 
 
 item :: { Expr }
-    : Exp { $1 }
+    : Exp { $1 } -- associa item a uma expressão da linguagem
 
 items_ :: { [ Expr ] }
-    : item { [ $1 ] }
-    | item ';' { [ $1 ] }
-    | items_ "<-" item { $3 : $1 }
+    : item { [ $1 ] } -- um único item, retorna lista com este item
+    | item ';' { [ $1 ] } -- item seguido de ';', retorna lista com este item
+    | items_ "<-" item { $3 : $1 } -- recursão de lista de itens
 
+-- Reverte ordem dos itens
 items : items_ { reverse $1 }
 
 {

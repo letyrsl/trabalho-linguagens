@@ -16,3 +16,5 @@ cat exemploListaSimples.mylang| runghc Main.hs;
 cat exemploListaComplexa.mylang| runghc Main.hs;
 cat exemploListaVazia.mylang| runghc Main.hs;
 ```
+
+> Link do vídeo: https://www.loom.com/share/666ab5180b72463b9f8ad1f279c5a5f2?sid=097f0cb4-3291-457a-a62c-c0979db4372a

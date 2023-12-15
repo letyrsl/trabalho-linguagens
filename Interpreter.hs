@@ -99,5 +99,9 @@ eval e | isValue e = e
 
 
 execRec :: [Expr] -> [Expr]
+-- quando há somente um elemento na lista, verifica se é um valor, caso não calcula com step
 execRec (x:[]) = if isValue x then [ x ] else execRec [ (step x) ]
+--  quando há mais de um elemento na lista
+-- se x é um valor retorna lista com elemento concatenando com a chamada recursiva da função, passando o restante da lista
+-- se x não é um valor, calcula x com step e concatena com a chamada recursiva da função, passando o restante da lista
 execRec (x:tl) = if isValue x then [ x ] ++ (execRec tl) else execRec [(step x)] ++ (execRec tl)
